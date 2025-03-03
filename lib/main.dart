@@ -27,13 +27,19 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final _scrollController = ScrollController();
+  
   @override
   void initState() {
     super.initState();
 
     _scrollController.addListener(() {
-      print(_scrollController.position.maxScrollExtent);
-      print(_scrollController.position.pixels);
+
+      final percent =
+          _scrollController.position.pixels /
+          _scrollController.position.maxScrollExtent;
+      // print(_scrollController.position.maxScrollExtent);
+      // print(_scrollController.position.pixels);
+      print(percent);
     });
   }
 
@@ -42,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Material(
       child: ListView.builder(
         controller: _scrollController,
-        itemCount: 1000,
+        itemCount: 100,
         itemBuilder: (context, index) {
           return ListTile(title: Text('Item $index'));
         },
