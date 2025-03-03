@@ -33,6 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     _scrollController.addListener(() {
       print(_scrollController.position.maxScrollExtent);
+      print(_scrollController.position.pixels);
     });
   }
 
