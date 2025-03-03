@@ -28,28 +28,13 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    final height = 300.0;
     return Material(
-      child: ListView(
-        children: [
-          Container(color: Colors.red, height: height),
-          SizedBox(
-            height: 100,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: [
-                Container(color: Colors.green, height: 100, width: 100),
-                Container(color: Colors.yellow, height: 100, width: 100),
-                Container(color: Colors.green, height: 100, width: 100),
-                Container(color: Colors.yellow, height: 100, width: 100),
-                Container(color: Colors.green, height: 100, width: 100),
-                Container(color: Colors.yellow, height: 100, width: 100),
-              ],
-            ),
-          ),
-          Container(color: Colors.blue, height: height),
-          Container(color: Colors.black, height: height),
-        ],
+      child: ListView.builder(
+        itemCount: 1000,
+        itemBuilder: (context, index) {
+          return ListTile(title: Text('Item $index'));
+        },
+        
       ),
     );
   }
